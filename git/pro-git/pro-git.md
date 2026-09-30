@@ -29,3 +29,32 @@
 # 커밋을 그래프 관계로 표현합니다. 특히 브렌치,병합 history 볼 때 사용합니다. 
 % git log --graph 
 ```
+
+
+## Limiting Log Output 
+### git log의 다양한 limiting option 
+- 특정 기간 생성한 커밋을 보고 싶다면? 
+```zsh 
+#2주 전부터 커밋한 자료들만 본다. 
+% git log --since=2.weeks
+```
+- 특정 문자열이 변화를 담은 커밋을 보고 싶다면? 
+```zsh 
+# verify_auth 함수를 담은 커밋 시점을 본다. 
+% git log -S verfiy_auth 
+```
+
+- 특정 파일의 변경 사항을 담은 커밋을 보고 싶다면? 
+```zsh 
+# app/model.py의 변경사항을 담은 커밋을 본다. 
+% git log -- app/model.py
+```
+
+- **--no-merges**옵션의 사용 
+	- 보통 git log는 merge commit도 같이 나온다. ->이것은 정보가 없을 수 있고 로그를 복잡히 한다. 
+	- 따라서 나머지 커밋만 볼 때 사용 가능하다. 
+```zsh 
+% git log --no-merges
+```
+
+## Undoing Things 
