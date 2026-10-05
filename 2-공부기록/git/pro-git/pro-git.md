@@ -58,3 +58,26 @@
 ```
 
 ## Undoing Things 
+### 언제 사용? 
+- 추가 파일을 빼먹고 커밋 x 
+- 커밋 메세지 재작성 필요 시 
+
+### 사용 명령어 
+```zsh
+% git commit --amend
+```
+
+### 예시 
+```zsh 
+# 모르고 파일 빼먹고 안 올림 
+% git commit -m "Initial commit"
+% add forgotten_file 
+% git commit --amend 
+```
+
+***caution*** 
+- 이전 커밋 사항을 amend하면 repository history에서 아예 사라짐 
+- 주로 사소한 변경점을 마지막 커밋에 더할 때 사용 
+- collaborators들과 작업 시엔 특히 주의 
+
+## Unstaging a Staged File 
