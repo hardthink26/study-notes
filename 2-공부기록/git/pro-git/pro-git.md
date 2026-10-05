@@ -1,6 +1,6 @@
 ## viewing the Commit History 
 
-### commit history전체를 보고 싶다면 ==git log== 명령어 사용! 
+### commit history전체를 보고 싶다면 **git log** 명령어 사용! 
 
 ### 깃 명령어의 유용한 옵션들 
 - **-p**, **--patch** : 각 커밋간의 차이를 설명 
