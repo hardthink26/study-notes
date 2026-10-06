@@ -21,3 +21,15 @@
 	- 하지만 virtual subclasses에 등록되어 issubclass()를 통해 True 반환 가능 
 
 ## List comprehensions and Generator Expressions 
+- 줄여서 Listcomp라고도 표현 
+- listcomps VS for loop 
+	- new list 생성시 -> listcomps사용 
+	- 생성된 리스트는 필요x side effect 필요시 -> for문 사용 
+	- 코드가 복잡? -> for loop사용 
+
+- ### Comprehesion Scope 
+	- comp의 반복 변수는 comp 내부서만 존재 
+	- :=(walrus operator) 할당 변수는 comp이후에도 접근 가능 
+![예제코드](../../../../comp예제코드.png) 
+
+## Listcomps and Versus map and filter 
