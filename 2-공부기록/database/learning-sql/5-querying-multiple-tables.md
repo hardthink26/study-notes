@@ -26,5 +26,5 @@
 	- 장점: 읽고 이해하기 수월합니다. 
 	- 단점: 각기 서버마다 문법이 달라 호환성에 문제가 생길 수 있습니다. 
 
-## joining Thress or More Tables 
+## joining Three or More Tables 
 

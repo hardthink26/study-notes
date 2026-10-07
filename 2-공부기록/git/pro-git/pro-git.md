@@ -81,3 +81,30 @@
 - collaborators들과 작업 시엔 특히 주의 
 
 ## Unstaging a Staged File 
+- 상황: 만약에 실수로 staging한 파일을 다시 되돌리려면? 
+	- `git reset HEAD <file>` 사용 
+- **example** 
+- ```zsh 
+  % git add file1 
+  # 여기서 file1을 다시 working directory에 두고 싶다면? 
+  % git reset HEAD file1 
+  ```
+
+## Unmodifying a Modified File 
+- 상황: 아직 커밋하지않은 파일을 취소하고 다시 이전 상태로 되돌아가고 싶다면? 
+	- `git restore`사용 
+- **example** 
+```zsh 
+*/ last commit : a 
+staging area: b 
+current working directory: c 
+/*
+# 만약 스테이징 상태로 되돌아가고 싶다면? 
+% git restore <file> 
+# current working dirextory => b 
+#전 커밋으로 돌아가고 싶다면 ? 
+% git restore --source=HEAD <file> 
+# current working directory => a 
+```
+
+## Undoing things with git restore 
