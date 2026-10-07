@@ -20,3 +20,16 @@
 ```
 
 ## Options and Arguments 
+- 여러 옵션들을 통해 command의 행동들을 통제 가능합니다. 
+- 기본형 
+` % command -options arguments` 
+- **example** 
+```zsh 
+% ls -lt
+```
+
+- -l: Display results in long format. 
+- -t : Sort by modification time . 
+
+
+## A Longer Look at Long Format 
