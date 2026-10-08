@@ -23,7 +23,7 @@
 - 여러 옵션들을 통해 command의 행동들을 통제 가능합니다. 
 - 기본형 
 ` % command -options arguments` 
-- **example** 
+-  **example** 
 ```zsh 
 % ls -lt
 ```
