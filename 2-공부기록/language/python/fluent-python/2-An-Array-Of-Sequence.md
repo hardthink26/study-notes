@@ -33,3 +33,6 @@
 ![예제코드](../../../../attachment/comp예제코드.png) 
 
 ## Listcomps and Versus map and filter 
+- map & filter가 하는 것은 다 Listcomprehension이 가능합니다. 
+
+## Cartesian Products 
