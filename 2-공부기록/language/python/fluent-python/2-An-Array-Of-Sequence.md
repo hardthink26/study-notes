@@ -36,3 +36,24 @@
 - map & filter가 하는 것은 다 Listcomprehension이 가능합니다. 
 
 ## Cartesian Products 
+- Listcomps can build lists from the Cartesian product of two or more iterables 
+
+```python 
+colors = ['black', 'white']
+sizes = ['S', 'M', 'L']
+tshirts = [(color, size) for color in colors for size in sizes]
+```
+
+## Generate Expressions 
+- tuples, arrays, and other type of sequences를 초기화하기 위하여 generator expression(genexp)를 사용할 수 있다. 
+	- **왜 사용?**
+		- item을 one by one씩 산출하기에 메모리 save가 가능하다. 
+```python 
+colors = ['black', 'white']
+sizes = ['S', 'M', 'L']
+for tshirt in (f'{c} {s}' for c in colors for s in sizes ):
+	print(tshirt)
+```
+
+## Tuples Are Not Just Immutable Lists 
+1. 
