@@ -56,4 +56,3 @@ for tshirt in (f'{c} {s}' for c in colors for s in sizes ):
 ```
 
 ## Tuples Are Not Just Immutable Lists 
-1. 
