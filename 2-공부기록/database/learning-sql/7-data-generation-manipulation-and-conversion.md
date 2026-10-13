@@ -80,3 +80,61 @@ SET text_fld = CONCAT(text_fld, ', asdf');
 		- `SELECT SUBSTRING('goodbye cruel world', 9, 5);`
 
 ## Working with Numeric Data 
+```sql 
+SELECT (37* 59) / (83 - (23 * 3));
+```
+
+### performing Arithmetic functions 
+- ex) 
+	- acos(x)
+	- atan(x) 
+	- cos(x) 
+	- in(x) 
+	- sin(x) 
+	- sqrt(x) 
+	- mod(x)
+	- pow(x) 
+### Controlling Number Precision 
+
+- 올림/ 내림 함수 (ceil, floor)
+```sql 
+#올림 함수 
+SELECT CEIL(82.334);
+# -> 83 
+```
+```sql 
+SELECT FLOOR(82.334);
+# -> 82 
+```
+
+- 반올림 함수 (round)
+	- midpoint기준으로 반올림을 합니다. 
+	- seconde argu로 반올림 위치를 정할 수 있습니다. 
+```sql 
+SELECT ROUND(82.0909, 1);
+# -> 82.1
+```
+
+- 자르기 (truncate)
+	- 원하는 위치에서 자르기 가능합니다. 
+
+- round & truncate function은 두 번째 인자로 negative value가 가능합니다. 
+```sql 
+SELECT ROUND(17, -1); 
+# -> 20 
+SELECT TRUNCATE(17, -1);
+# -> 10 
+```
+
+
+### handling Signed data 
+- sign() 
+	- return value 
+		- -1: 값이 음수 
+		- 0: 값이 제로 
+		- 1 : 값이 양수 
+- abs() 
+	- return value 
+		- 절댓값을 반환합니다. 
+
+## Working with Temporal Data 
