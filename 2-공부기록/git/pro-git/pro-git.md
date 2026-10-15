@@ -108,3 +108,34 @@ current working directory: c
 ```
 
 ## Undoing things with git restore 
+- **restore**로 작업하기 
+```zsh 
+#만약 파일 a를 실수로 스테이징을 했다면? 
+% git restore --staged a 
+```
+
+- **caution** 
+	- 남용 금지!! 
+		- **restore**명령어로 되돌리면 변경 사항 전부 날라감, 복구 x 
+
+## Working With Remotes 
+- Remote repositories 
+	- def: versions of project that are hosted on the Internet or network somewhere 
+
+### Showing your Remotes 
+- **git remote** 
+	- It lists the shortnames of each remote handle 
+- **origin** 
+	- the default name Git gives to the server you cloned from
+```zsh 
+% git clone https://...
+% git remote 
+```
+
+- with **-v** 
+```zsh 
+% git remote -v 
+# shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote 
+```
+
+### Adding Remote Repositories 
