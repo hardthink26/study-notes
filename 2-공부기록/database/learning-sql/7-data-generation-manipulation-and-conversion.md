@@ -138,3 +138,137 @@ SELECT TRUNCATE(17, -1);
 		- 절댓값을 반환합니다. 
 
 ## Working with Temporal Data 
+- temporal data is the most involved when it comes to data generation and manipulation. 
+
+### Dealing with Time Zones 
+- The world has been sliced into 24 imaginary sections, called **time zone**.
+	- **유래** 
+		- fifteenth-century navigators set their clocks to the time of day in Greenwich, England called GMT(Greenwich Mean Time)
+- 현재는 variation of GMT called Coordinated Universal Time(UTC) 사용합니다. 
+	- atomic clock을 베이스로 합니다. 
+
+- (in Mysql) 두 개의 다른 time zone setting이 있습니다. 
+```sql 
+SELECT @@global.time_zone, @@session.time_zone 
+```
+- 만약 취리히에 있고, New york에 네트워크를 둔 session을 열 때 
+	- `SELECT SET time_zone = 'Europe/Zurich`로  설정 변경 가능합니다. 
+
+### Generating Temporal Data 
+
+- **string representations of temporal data** 
+	- server가 원하는 형식의 format을 갖추어야합나다!!
+```sql 
+# 만약 return_data => Datetime의 형식이라면? 
+UPDATE rental 
+SET return_date = '2019-09-17 15:30:00'
+WHERE rental_id = 33; 
+```
+
+### String-to-date conversions 
+- if the server is not expecting a **datetime** value or if represent the datetime using a nondefault format, 
+	- `cast()`function으로 string에서 date format으로 변환 가능 
+	- **예시** 
+		- `SELECT CAST('2019-09-17 12:22:00';`
+- (IN MYSQL)
+	- seperator는 엄격히 요구되지않습니다. 
+		- 예시 
+			- `2019/09/17 15:30:00'
+			- `2019, 09, 17 15, 30, 00`
+
+### Functions for generating dates 
+
+- (in Mysql) 
+	- cast의 형식에 맞지않는 format이 들어올 경우 `str_to_date()`를 사용합니다. 
+```sql 
+UPDATE rental 
+SET return_date = STR_TO_DATE('September 17, 2017', '%M %d, %Y')
+WHERE rental_id = 22; 
+# second argument는 date string의 포멧을 정의합니다. 
+```
+
+- str_to_date함수는 datetime, date, or time value를 반환합니다. 
+
+- **만약 현재 시간을 만든다면? ** 
+	- bulit-in function을 이용합시다. 
+		- CURRENT_TIME, CURRENT_DATE, CURRENT_TIMESTAMP 이용 가능 
+
+### Temporal functions that return dates 
+- 하나의 date를 받아서 다른 date 생성하는 함수 
+	- date_add function 
+```sql 
+SELECT DATE_ADD(CURRENT_DATE(), INTERVAL 5 DAY);
+```
+- LET'S SEE SECOND ARGUMENT 
+	- Three elements 
+		- interval keyword 
+		- the desired quantity 
+		- type of interval 
+			- second 
+			- minute 
+			- hour 
+			- minute-second -> Number of minutes and seconds, separated by":" 
+			- hour-second 
+			- year-month 
+```sql 
+UPDATE rental 
+SET return_date = DATE_ADD(return_date, INTERVAL '2:27:11' HOUR_SECOND);
+```
+- IF you know where you want to arrive  but not how many days is takes to get there.
+	- use `last_day()`
+- ```sql 
+  SELECT LAST_DAY('2017-03-23');
+  ```
+- 이 함수는 언제나 date값을 반환합니다. 
+
+### temporal functions that return strings 
+- `dayname()`
+	- to extract a portion of a date or time 
+```sql 
+SELECT DAYNAME('2019-02-23'); 
+```
+
+- `extract()`
+	- for extracting from date values 
+	- ues the same interval types as the `date_add()` 
+```sql 
+SELECT EXTRACT(YEAR FROM '2017-09-18 22:19:04');
+```
+
+### Temporal functions that return numbers 
+- 만약 두 date value 의 차이를 알고 싶다면? 
+	- `datediff()`사용합니다. 
+```sql 
+SELECT DATEDIFF('2019-09-03', '2019-06-21'); 
+```
+- 앞의 값에서 뒤의 값을 뺍니다. 
+- time값은 사용되지않습니다. 
+
+### conversion Functions 
+- `cast()` 
+```sql 
+SELECT CAST('123' AS SIGNED INTEGER); 
+```
+- provide a  value or expression 
+	- **as** keyword 
+	- the type to which you want the value converted 
+
+- when converting a string to number 
+	- 왼쪽에서 오른쪽으로 읽습니다. 
+	- 만약 수치가 아닌 데이터가 있다면? 
+		- 변환은 멈추고 warning 을 보냅니다. 
+```sql 
+SELECT CAST('999ABC333' AS UNSIGNED INTEGER);
+
++---------------------------------------+
+
+| CAST('999ABC333' AS UNSIGNED INTEGER) |
+
++---------------------------------------+
+
+|                                   999 |
+
++---------------------------------------+
+
+1 row in set, 1 warning (0.00 sec)
+```
