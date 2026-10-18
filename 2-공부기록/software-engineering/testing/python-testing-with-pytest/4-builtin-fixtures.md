@@ -56,3 +56,14 @@ assert captured.out == "Hello"
 	- caplog: captures output written with the logging package 
 
 ## Using monkeypatch 
+- monkeypatch can be used to change the application code or the environment. 
+- def: 프로그램 실행 중(런타임)에 객체의 속성이나 동작을 동적으로 변경하는 기법이다. 
+- 사용 목적: 
+	- 테스트 대상 코드가 실제 실행 환경에 의존 시, 테스트의 독립성과 재현성 확보하기 어렵다. 
+	- 따라서, monkeypatch를 사용하여 테스트 대상이 의존하는 객체나 실행 환경을 임시로 교체함으로써 테스트 환경을 통제 
+- 동작 원리(how) 
+	- `monkeypatch.setattr()`은 객체의 속성이 참조하는 값을 임시로 변경한다. 
+- 설계관점(Design for Testability) 
+	- monkeypatch는 테스트 환경을 통제하는 유용한 도구지만, 내부 구현에 강하게 의존하는 패치는 테스트 유지보수성을 떨어뜨릴 수 있다. 
+	- 따라서 **내부 구현을 직접 패치하기보단 설정 주입 등 테스트 가능한 인터페이스를 활용하는 것이 유리할 수 있다.** 
+	- 

@@ -25,3 +25,7 @@ first = func(user),# 의도치 않게 single element tuple이 될 수 있음
 원소 하나 tuple표현 시 (value,)형식을 이용하자! 
 
 ## Item 7: Consider Conditional Expressions for simple inline Logic 
+- Python `if` statement are not expressions. 
+- things to Remember 
+	- **Conditional expressions in Python allow you to put an if statement nearly anywhere an expression would normally go** 
+	- **The order of the test expression, true result expression, and false result expression in a conditional expression
