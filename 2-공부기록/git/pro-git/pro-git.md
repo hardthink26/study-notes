@@ -139,3 +139,16 @@ current working directory: c
 ```
 
 ### Adding Remote Repositories 
+- to add a new remote explicitly 
+	- `git remote add <shortname> <url>`형태로 사용 가능 
+
+### Fetching and Pulling from Your Remotes 
+```zsh 
+%git fetch <url> 
+```
+- fetch는 원격 저장소의 새로운 데이터를 가져온다. 
+- **주의사항**
+	- git fetch는 local repo에 데이터를 가져오지만 자동으로 병합이 되지는않는다.
+- 즉 데이터를 로컬 저장소르 가져오지만, 현재 브렌치, working directory, staging Area를 변경하지 않는다. 
+
+### Pushing to Your remotes 

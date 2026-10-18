@@ -60,3 +60,33 @@ drwx------@ 5 soo staff 160 Feb ...
 
 ## Determining a File's Type with file 
 
+- `file` : 파일 종류 확인 
+- 사용법 
+	- `file filename` 
+- linux와의 차이 
+	- 기본적 사용법은 동일 
+	- 설치된 file버전과 파일 유형 데이터베이스 따라 결과가 달라질 수 있다. 
+
+
+## Viewing File Contents with less 
+`less`: 텍스트 파일 내용 탐색 
+- 텍스트 파일의 내용을 페이지 단위로 출력하고, 앞뒤로 이동하거나 특정 문자열 검색 가능 
+- 사용법 
+	- `less filename` 
+- **주요특징** 
+	- 파일 수정하지 않고 탐색 
+	- 긴 텍스트 파일이나 로그 확인시 유용 
+	- 파일 전체를 터미널 화면에 출력하지 않아도 된다. 
+	- 파이프라인(|)과 함께 사용 가능 
+```zsh 
+% ls -l /usr/bin less 
+# 출력 결과를 less로 전달해 페이지 단위로 탐색하는 명령어 
+```
+- linux와의 차이 
+	- 설치된 less버전이나 환경 설정에 따라 일부 옵션과 동작이 다를 수 있다. 
+
+- **what is Text?** 
+	- Text is a simple one-to-one mapping og characters to numbers. 
+
+## Taking a Guided Tour 
+- 
