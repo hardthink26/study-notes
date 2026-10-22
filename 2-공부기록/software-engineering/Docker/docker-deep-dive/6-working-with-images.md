@@ -149,3 +149,11 @@
 	- Docker Scout 
 		- built into almost every level of Docker
 		- require a paid subscription 
+		- 관련 명령어 
+			- `docker scout quickview`
+				- to get a quick vulnerability overview of an image. 
+				- output shows zero critical vulnerabilities(0C), one high(1H), one medium(1M), and zero low(0L) 
+			- `docker scout cves` 
+				- to get more detailed info, including advice. 
+
+## Deleting Images 
