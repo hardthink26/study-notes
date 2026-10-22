@@ -34,3 +34,23 @@
 - VM 방식의 문제점 
 	- 매 vm마다 os설치해야 함 
 		- every OS consumes CPU, RAM, and storage and takes a relatively long time to boot.
+- 컨테이너 방식의 극복 
+	- by sharing a single OS on the host they're running on.
+- 컨테이너 방식의 장점 
+	- Containers are smaller & more portable 
+	- run more containers on my infrastructure 
+	- Containers start faster 
+		- because they use the host's OS which is already booted. 
+	- Containers reduce the number of operating systems you need to manage
+	- Containers present a smaller attack surface 
+
+## Images & Containers 
+- you can start multiple containers from single image. 
+- the image is read - only  but each container is read-write. 
+- 어떻게 구성? 
+	- by creating a thin read & write layer for each container and placing it on top of the shared image. 
+	- R/W layer의 역할 
+		- the containers can see and access the files & apps in the image through their own R/W image.
+		- each container can make and keep its own changes without requiring write access to the shared **images** 
+
+## Check Docker is running 
