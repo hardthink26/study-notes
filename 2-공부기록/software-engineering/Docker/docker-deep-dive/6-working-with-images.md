@@ -157,3 +157,33 @@
 				- to get more detailed info, including advice. 
 
 ## Deleting Images 
+- `docker rmi` image 
+	- Deleting images from repository  
+	- The operation deletes also all directories on local filesystem containing layer data.
+	- Docker won't delete layers shared by multiple images until deleting all images that reference them. 
+	- **사용법** 
+		- delete images by name, short ID, or SHA, also delete multiple images with the same command. 
+			- **주의**
+				- 만약 여러 개 컨테이너가 한 이미지를 공유 중이라면? 
+					- 일반적으로 삭제 불가 
+					- 하지만, `-f` flag를 통해 강제 삭제 가능 
+					- but, this will untag the image and leave it on the system as a **dangling(매달려 있는) image**.
+		- 만약 이미지 싹 다 삭제하고 싶다면? 
+			- `docker rmi $(docker images -q) -f`로 가능!!! 
+				- pass a list of all local images IDS to the `docker rmi` command 
+
+## Summary 
+- `docker inspect`
+	- give a wealth of image-related metadata in a nicely formatted view.
+- `docker manifest` 
+	- lets you inspect the manifest list of images stored in registries.
+- `docker buildx`
+	- A Docker CLI plugins that works with Docker's latest build engine features.
+- `docker scout`
+	- Docker plugin that integrates with the Docker Scout backend to perform image vulnerability scanning. 
+	- it scans images, provides reports on vulnerabilities, and suggests remediation actions
+- `docker rmi`
+	- the command to delete images
+
+
+

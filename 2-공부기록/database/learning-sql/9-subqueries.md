@@ -391,3 +391,4 @@ mysql> SELECT pymnt_grps.name, count(*) num_customers
 
 ### Common table expressions (CTE)
 - A CTE is a named subquery that appears at the top of a query in a `with` clause, which can contain multiple CTEs separated by commas. 
+
