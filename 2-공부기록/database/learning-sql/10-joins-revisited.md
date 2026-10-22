@@ -1,0 +1,4 @@
+
+### Outer Joins 
+- definition 
+	- 

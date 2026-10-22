@@ -391,4 +391,19 @@ mysql> SELECT pymnt_grps.name, count(*) num_customers
 
 ### Common table expressions (CTE)
 - A CTE is a named subquery that appears at the top of a query in a `with` clause, which can contain multiple CTEs separated by commas. 
+- 특징 
+	- Along with making queries more unstandalbe 
+	- Also, allow each CTE to refer to any other CTE defined above it in the same `WITH` clause. 
+
+### Subqueries as Expression Generators 
+```sql
+l> SELECT a.actor_id, a.first_name, a.last_name
+    -> FROM actor a
+    -> ORDER BY
+    -> (SELECT count(*) FROM film_actor fa
+    -> WHERE fa.actor_id = a.actor_id) DESC;
+```
+- the Query uses a correlated scalar subquery in the `order by` clause to return just the number of film appearances, and this value is used solely for sorting purposes. 
+- Scalar Subquery는 단일 행·단일 칼럼을 반환하므로 하나의 값처럼 사용이 가능하다. 따라서 `where`, `select`, `order by`, `insert` 등 표현식이 허용되는 위치에도 사용할 수 있다. 
+
 
