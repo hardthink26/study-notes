@@ -86,7 +86,34 @@ drwx------@ 5 soo staff 160 Feb ...
 	- 설치된 less버전이나 환경 설정에 따라 일부 옵션과 동작이 다를 수 있다. 
 
 - **what is Text?** 
-	- Text is a simple one-to-one mapping og characters to numbers. 
+	- Text is a simple one-to-one mapping of characters to numbers. 
 
 ## Taking a Guided Tour 
+- The file syttem layout on a Linux system is much like that found on other Unix-like systems.
+- The design is actually specified in a published standard called the **linux Filesystem Hierarchy Standard** 
+
+### 암기해라 !! 
+- `cd`: go into a given directory 
+- `ls -l`: List the directory contents
+- `file`: if you see an interesting file, determine its contents 
+- `less`: if it looks like it might be text, try viewing with this command 
+
+### Linux Filesystem Hierarchy 
+-리눅스는 `/`를 최상위로 하는 계층적 파일시스템 구조를 사용한다. 각 디렉터리는 관례적으로 특정 역할을 담당한다. 
+- / 
+	- home/: 사용자 홈 디렉터리 
+	- etc/: 시스템 설정 
+	- usr/: 프로그램 및 공유 리소스 
+		- bin/: 실행 프로그램 
+		- lib/ : 라이브러리 
+		- share/: 공유 데이터 
+	- var/: 변경되는 데이터 
+		- log/: 로그 파일 
+	- tmp/: 임시파일 
+	- dev/: 장치 파일 
+	- proc/: 커널·프로세스 정보(**Linux**)
+
+- 파일 시스템은 단순히 파일을 보관하는 공간이 아니라, 사용자 데이터·프로그램·설정 등을 역할에 따라 구분하는 구조이다. 
+
+## Symbolic Links 
 - 
