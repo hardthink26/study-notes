@@ -91,4 +91,44 @@ return "You'll never have flying cars";
 
 ## Arrow Functions 
 - It uses an arrow(=>) made up of an equal sign and a greater-than character.
+```javascript
+const roundTo = (n, step) => {
+let remainder = n % step;
+return n - remainder + (remainder < step / 2 ? 0 : step)};
+}; 
+```
+- parameter 이후 arrow 이후엔 함수 body가 나옴 
+	- 이 para가 이 내용들을 만들거야를 의미 
 
+- 만약 인자가 하나라면 괄호 생략 가능, 바디가 single expression이면(괄호 없음) 그 내용이 반환 
+```javascript 
+const square = x => x *x ; 
+```
+
+## The call stack 
+- definition 
+	- The place where the computer stores the context 
+- Every time a function is called, the current context is stored on top of this stack. 
+	- so, when a function returns, it removes the top context from the stack and uses that context to continue execution. 
+- 주의사항 
+	- Storing stack requires space in the computer's memory. 
+		- when the stack grows too big => Will Fail!!! 
+
+## Optional Arguments 
+```javascript 
+function square(x) {return x * x;}
+console.log(square(4, true)); 
+```
+- 이 코드는 작동할까요? 
+	- 작동합니다. 자바스크립트는 인자 개수를 정확히 맞추는 것을 신경쓰지 않습니다. 
+
+```javascript 
+function roundTo(n, step=1){
+let remainder = n % step;
+return n - remainder + (remainder < step/2 ? 0: step);
+};
+```
+- 함수가 받는 인자에 = 연산자를 사용 가능합니다. 
+	- 의미는 만약 인풋이 없다면 by default로 =1값을 부여합니다. 
+
+## Closure 
