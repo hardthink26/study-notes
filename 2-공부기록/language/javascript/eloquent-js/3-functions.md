@@ -25,7 +25,7 @@ var z = 30 ; //Also global
 
 ## Nested Scope
 - Blocks and functions can be created inside other blocks and functions producing multiple degress of locality. 
-- the set of bindings visible inside o block is determined by the place of that block in the program text. 
+- the set of bindings visible inside a block is determined by the place of that block in the program text. 
 	- Each local scope can see all the local scopes that contain it 
 	- all scopes can see the global scope .
 - This approach to binding visibility is called **lexical scoping**. 
@@ -132,3 +132,21 @@ return n - remainder + (remainder < step/2 ? 0: step);
 	- 의미는 만약 인풋이 없다면 by default로 =1값을 부여합니다. 
 
 ## Closure 
+### definition 
+- 함수가 자신이 생성된 Lexical Environment의 바인딩에 접근할 수 있는 성질이다. 
+	- 함수는 코드뿐 아니라 자신에 생성된 렉시컬 환경과 연결 
+	- 함수의 외부 호출이 종료되어도 내부 함수가 참조하는 비인딩은 유지 
+	- 함수는 호출된 위치가 아니라 정의된 위치의 렉시컬 환경을 기준으로 외부 변수를 탐색 
+
+```javascript
+function multiplier(factor){
+return number => number * factor;}
+
+let twice = multiplier(2);
+
+console.log(twice(5)); // 10 
+```
+
+## Recursion 
+### definition 
+- A function that calls itself is called **recursive** 
