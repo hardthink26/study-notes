@@ -407,13 +407,16 @@ l> SELECT a.actor_id, a.first_name, a.last_name
 - Scalar Subquery는 단일 행·단일 칼럼을 반환하므로 하나의 값처럼 사용이 가능하다. 따라서 `where`, `select`, `order by`, `insert` 등 표현식이 허용되는 위치에도 사용할 수 있다. 
 
 
-### practice 
+### practice (9-3)
 - 서브 쿼리 구하기 
 - film_actor: actor_id, film_id 
 - film : actor_id, name 
 - actor: actor_id, name 
 
-풀이과정 
-- 구할 것: 배우 아이디, 이름, 레벨까지 
-- 총 배우 200명
--  쿼리는 200 row를 반환해야 함
+- 풀이과정 
+	- 구할 것: 배우 아이디, 이름, 레벨까지 
+	- 총 배우 200명
+	-  쿼리는 200 row를 반환해야 함
+	
+- 생각 못한 점 
+	- 필터링은 각 row마다 비교 검사함을 인지 못함 -> 각 row마다 조사를 하는 방향으로 풀이 진행 
