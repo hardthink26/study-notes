@@ -208,3 +208,21 @@ mysql> SELECT f.film_id, f.title, i.inventory_id, r.rental_date
 ## Natural Joins 
 - you can choose a join type that allows you to name the tables to be joined but lets the db server determing what the join conditions need to be
 	- This type relies on identical column names across multiple tables to infer the proper join conditions. 
+
+- 따로 제약을 지정하지 않으면 의도치 않은 결합이 가능 
+- 피할려면 subquery's column을 제약한 후 사용 
+```sql 
+mysql> SELECT cust.first_name, cust.last_name, date(r.rental_date)
+
+    -> FROM 
+
+    -> (SELECT customer_id, first_name, last_name
+
+    -> FROM customer
+
+    -> ) cust 
+
+    -> NATURAL JOIN rental r;
+```
+
+
