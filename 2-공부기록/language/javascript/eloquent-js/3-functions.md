@@ -150,3 +150,18 @@ console.log(twice(5)); // 10
 ## Recursion 
 ### definition 
 - A function that calls itself is called **recursive** 
+```javascript 
+function power(base, exponent){
+if (exponent ==0){
+	return 1;
+} else{
+	return base * power(base, exponent-1);
+	}
+}
+```
+- 밸런스 잡기가 중요 
+	- 이 문제에서 for loop문보다 3배이상의 연산이 필요하다 
+	- 따라서 왠만하면 반복을 먼저 고려하는 것을 추천 
+
+## Growing Functions 
+- 
